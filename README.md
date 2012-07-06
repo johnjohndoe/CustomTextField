@@ -11,7 +11,8 @@ Screenshot
 ------------------
 The screenshot shows the current implementation.
 
-![CustomTextField](https://github.com/johnjohndoe/CustomTextField/raw/master/screenshot.png "CustomTextField")
+![CustomTextField, enabled](https://github.com/johnjohndoe/CustomTextField/raw/master/screenshot_enabled.png "CustomTextField, enabled")
+![CustomTextField, disabled](https://github.com/johnjohndoe/CustomTextField/raw/master/screenshot_disabled.png "CustomTextField, disabled")
 
 
 Configuration
