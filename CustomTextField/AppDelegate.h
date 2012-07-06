@@ -7,14 +7,17 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "CustomTextField.h"
 
 @interface AppDelegate : NSObject<NSApplicationDelegate> {
 
 	NSWindow* m_window;
 	NSButton* m_enabledCheckbox;
+	CustomTextField* m_textField;
 }
 
 @property (assign) IBOutlet NSWindow* window;
 @property (assign) IBOutlet NSButton* enabledCheckbox;
+@property (assign) IBOutlet CustomTextField* textField;
 
 @end

@@ -8,6 +8,11 @@
 
 #import <AppKit/AppKit.h>
 
-@interface CustomTextField : NSTextField
+@interface CustomTextField : NSTextField {
+
+	NSString* m_disabledStringValue;
+}
+
+@property (assign) NSString* disabledStringValue;
 
 @end

@@ -8,11 +8,54 @@
 
 #import "CustomTextField.h"
 
-@implementation CustomTextField
+#pragma mark
+@interface CustomTextField()
+#pragma mark
+@property (readonly, getter = isLabel) BOOL label;
+@end
 
-- (void)setEnabled:(BOOL)flag {
-	[super setEnabled:flag];
-	[self setTextColor:flag ? [NSColor textColor]: [NSColor disabledControlTextColor]];
+
+#pragma mark
+@implementation CustomTextField
+#pragma mark
+
+- (id)init {
+    self = [super init];
+    if (self) {
+        m_disabledStringValue = nil;
+    }
+    return self;
+}
+
+#pragma mark - Properties
+@synthesize disabledStringValue = m_disabledStringValue;
+@dynamic label;
+
+#pragma mark
+
+- (void)toggleStringValue {
+	if (m_disabledStringValue) {
+		if (self.isEnabled) {
+			[self.undoManager undo];
+		}
+		else {
+			[[self.undoManager prepareWithInvocationTarget:self] setStringValue:self.stringValue];
+			self.stringValue = self.disabledStringValue;
+		}
+	}
+}
+
+- (void)setEnabled:(BOOL)enabled {
+	super.enabled = enabled;
+	self.textColor = enabled ? [NSColor textColor]: [NSColor disabledControlTextColor];
+
+	if (!self.isLabel) {
+		[self toggleStringValue];
+	}
+}
+
+- (BOOL)isLabel {
+	return !self.drawsBackground;
 }
 
 @end
